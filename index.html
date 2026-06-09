@@ -4,14 +4,17 @@
     <title>Funkin' Chart Analysis</title>
     <link href="css/stylesheet.css" rel="stylesheet">
     <script src="js/jszip.min.js"></script>
+    <script src="js/jquery-4.0.0.min.js"></script>
   </head>
   <body>
     <p>Please upload a .fnfc file here:</p>
     <input type="file" id="fnfc">
     <button id="upload">Upload</button>
     <p>Please choose a difficulty:</p>
-    <select disabled>
+    <select id="diffSelect" disabled>
     </select>
+    <br>
+    <button id="analyze">Analyze</button>
     <table>
       <tbody>
         <tr>
@@ -21,10 +24,44 @@
           <th>Total Amount</th>
         </tr>
         <tr>
-          <td><img src="images/noteLeft.png"></td>
+          <td>
+            <img src="images/noteLeft.png" style="
+              inline-size: 64px;
+            ">
+          </td>
           <td id="rAmountLeft">N/A</td>
           <td id="sAmountLeft">N/A</td>
           <td id="tAmountLeft">N/A</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/noteDown.png" style="
+              inline-size: 64px;
+            ">
+          </td>
+          <td id="rAmountDown">N/A</td>
+          <td id="sAmountDown">N/A</td>
+          <td id="tAmountDown">N/A</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/noteUp.png" style="
+              inline-size: 64px;
+            ">
+          </td>
+          <td id="rAmountUp">N/A</td>
+          <td id="sAmountUp">N/A</td>
+          <td id="tAmountUp">N/A</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/noteRight.png" style="
+              inline-size: 64px;
+            ">
+          </td>
+          <td id="rAmountRight">N/A</td>
+          <td id="sAmountRight">N/A</td>
+          <td id="tAmountRight">N/A</td>
         </tr>
       </tbody>
     </table>
