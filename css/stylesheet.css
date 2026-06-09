@@ -1,3 +1,9 @@
+body {
+  background-image: url(../images/menuDesat.png);
+  background-color: #4e0082;
+  background-blend-mode: multiply;
+}
+
 table {
   border-collapse: collapse;
 }
