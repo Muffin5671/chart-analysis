@@ -2,12 +2,32 @@
 <html>
   <head>
     <title>Funkin' Chart Analysis</title>
+    <link href="css/stylesheet.css" rel="stylesheet">
     <script src="js/jszip.min.js"></script>
   </head>
   <body>
     <p>Please upload a .fnfc file here:</p>
-    <form action="analyze/">
-      <input type="file" name="file" required><input type="submit">
-    </form>
+    <input type="file" id="fnfc">
+    <button id="upload">Upload</button>
+    <p>Please choose a difficulty:</p>
+    <select disabled>
+    </select>
+    <table>
+      <tbody>
+        <tr>
+          <th>Note</th>
+          <th>Regular Amount</th>
+          <th>Sustain Amount</th>
+          <th>Total Amount</th>
+        </tr>
+        <tr>
+          <td><img src="images/noteLeft.png"></td>
+          <td id="rAmountLeft">N/A</td>
+          <td id="sAmountLeft">N/A</td>
+          <td id="tAmountLeft">N/A</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="js/script.js"></script>
   </body>
 </html>
