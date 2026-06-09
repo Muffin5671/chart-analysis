@@ -1,6 +1,7 @@
+let zip;
+let songId;
 $("#upload")[0].addEventListener("click", () => {
-  let zip = new JSZip();
-  let songId;
+  zip = new JSZip();
   zip.loadAsync($("#fnfc")[0].files[0])
   .then(async zip => {
     songId = await zip.file("manifest.json")
@@ -15,8 +16,16 @@ $("#upload")[0].addEventListener("click", () => {
     .then(content => {
       return JSON.parse(content);
     });
+
+    if (!($(".diffOption").length == 0)) {
+      do {
+        $(".diffOption")[0].remove();
+      } while (!($(".diffOption").length == 0))
+    }
+
     metadata.playData.difficulties.forEach(diff => {
       let option = document.createElement("option");
+      option.setAttribute("class", "diffOption");
       option.innerText = diff;
       $("#diffSelect")[0].add(option);
     })
@@ -30,6 +39,70 @@ $("#analyze")[0].addEventListener("click", () => {
   .then(content => {
     let diff = $("#diffSelect")[0].value;
     let chart = JSON.parse(content).notes[diff];
-    console.log(chart);
-  })
-})
+
+    let left = 0;
+    let down = 0;
+    let up = 0;
+    let right = 0;
+    let lHold = 0;
+    let dHold = 0;
+    let uHold = 0;
+    let rHold = 0;
+    chart.forEach(note => {
+      switch (note.d) {
+        case 0:
+          left++;
+          if (note.l > 0) lHold++;
+          break;
+        case 1:
+          down++;
+          if (note.l > 0) dHold++;
+          break;
+        case 2:
+          up++;
+          if (note.l > 0) uHold++;
+          break;
+        case 3:
+          right++;
+          if (note.l > 0) rHold++;
+          break;
+        case 4:
+          left++;
+          if (note.l > 0) lHold++;
+          break;
+        case 5:
+          down++;
+          if (note.l > 0) dHold++;
+          break;
+        case 6:
+          up++;
+          if (note.l > 0) uHold++;
+          break;
+        case 7:
+          right++;
+          if (note.l > 0) rHold++;
+          break;
+      }
+    });
+
+    // left
+    $("#rAmountLeft")[0].innerText = left;
+    $("#sAmountLeft")[0].innerText = lHold;
+    $("#tAmountLeft")[0].innerText = left + lHold;
+
+    // down
+    $("#rAmountDown")[0].innerText = down;
+    $("#sAmountDown")[0].innerText = dHold;
+    $("#tAmountDown")[0].innerText = down + dHold;
+
+    // up
+    $("#rAmountUp")[0].innerText = up;
+    $("#sAmountUp")[0].innerText = uHold;
+    $("#tAmountUp")[0].innerText = up + uHold;
+
+    // right
+    $("#rAmountRight")[0].innerText = right;
+    $("#sAmountRight")[0].innerText = rHold;
+    $("#tAmountRight")[0].innerText = right + rHold;
+  });
+});
