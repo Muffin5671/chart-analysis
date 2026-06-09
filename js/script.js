@@ -1,8 +1,18 @@
+let fileInput = document.createElement("input");
+fileInput.setAttribute("type", "file");
+fileInput.setAttribute("accept", ".fnfc, .zip");
+
+$("#fileSelect")[0].addEventListener("click", () => fileInput.click());
+
 let zip;
 let songId;
 $("#upload")[0].addEventListener("click", () => {
+  if (!(fileInput.files[0].name.endsWith(".fnfc")) || !(fileInput.files[0].name.endsWith(".zip"))) {
+    alert("Error: File is not a type of .fnfc or .zip.");
+    throw new Error("File is not a type of .fnfc or .zip.");
+  }
   zip = new JSZip();
-  zip.loadAsync($("#fnfc")[0].files[0])
+  zip.loadAsync(fileInput.files[0])
   .then(async zip => {
     songId = await zip.file("manifest.json")
     .async("string")

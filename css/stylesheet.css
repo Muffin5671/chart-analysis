@@ -1,20 +1,76 @@
 body {
-  background-image: url(../images/menuDesat.png);
-  background-color: #4e0082;
-  background-blend-mode: multiply;
+  background-image: linear-gradient(#fff, #eee);
+  background-attachment: fixed;
+}
+
+p {
+  font-family: Helvetica, sans-serif, system-ui;
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 5px;
+  text-shadow: 0 1px 8px #00000055;
+}
+
+h2 {
+  font-family: Helvetica, sans-serif, system-ui;
+  font-size: 24px;
+  color: #222;
+  margin: 10px 0 30px;
+  text-shadow: 0 1px 8px #00000033;
+}
+
+button {
+  background-image: linear-gradient(#fff, #eee);
+  color: #222;
+  font-family: Helvetica, sans-serif, system-ui;
+  font-size: 16px;
+  padding: 6px 16px;
+  border: solid 2px #888;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 5px #00000055;
+  cursor: pointer;
+}
+
+button:active {
+  background-image: linear-gradient(#eee, #ddd);
+  box-shadow: 0 1px 8px #00000088;
+}
+
+select {
+  font-family: Helvetica, sans-serif, system-ui;
+  font-size: 16px;
+  background-image: linear-gradient(#fff, #eee);
+  color: #222;
+  width: 100px;
+  padding: 4px 6px;
+  border: solid 2px #888;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 5px #00000055;
+}
+
+option {
+  font-family: Helvetica, sans-serif, system-ui;
+  color: #222;
 }
 
 table {
+  font-family: Helvetica, sans-serif, system-ui;
+  font-size: 16px;
+  color: #222;
   border-collapse: collapse;
+  box-shadow: 0 1px 5px #00000055;
 }
 
 th {
-  background-color: #eee;
+  background-image: linear-gradient(#efefef, #ddd);
   padding: 8px 12px;
-  border: 1px solid #aaa;
+  border: solid 1px #888;
 }
 
 td {
+  background-image: linear-gradient(#fff, #eee);
   padding: 8px 12px;
-  border: 1px solid #aaa;
+  border: solid 1px #888;
 }
