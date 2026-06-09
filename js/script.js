@@ -34,7 +34,7 @@ $("#upload")[0].addEventListener("click", () => {
 });
 
 $("#analyze")[0].addEventListener("click", () => {
-  zip.files[`${songId}-chart.json`]
+  zip.file(`${songId}-chart.json`)
   .async("string")
   .then(content => {
     let diff = $("#diffSelect")[0].value;
