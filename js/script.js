@@ -1,13 +1,13 @@
 let fileInput = document.createElement("input");
 fileInput.setAttribute("type", "file");
 fileInput.setAttribute("accept", ".fnfc, .zip");
-
+fileInput.oninput = () => $("#selectedFile")[0].innerText = `Selected file: ${fileInput.files[0].name}`;
 $("#fileSelect")[0].addEventListener("click", () => fileInput.click());
 
 let zip;
 let songId;
 $("#upload")[0].addEventListener("click", () => {
-  if (!(fileInput.files[0].name.endsWith(".fnfc")) || !(fileInput.files[0].name.endsWith(".zip"))) {
+  if (!(fileInput.files[0].name.endsWith(".fnfc") || fileInput.files[0].name.endsWith(".zip"))) {
     alert("Error: File is not a type of .fnfc or .zip.");
     throw new Error("File is not a type of .fnfc or .zip.");
   }
